@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//NOTE: DEFAULT MARGIN
+double defaultMargin = 24.0;
+
 //NOTE: COLOR
+Color kBottomNavbarColor = const Color(0xffF6F7F8);
 Color kPurpleColor = const Color(0xff5843BE);
+Color kPurpleColor2 = const Color(0xff7F74EB);
 Color kOrangeColor = const Color(0xffFF9376);
 Color kBlackColor = const Color(0xff000000);
 Color kWhiteColor = const Color(0xffFFFFFF);
 Color kGreyColor = const Color(0xff82868E);
+Color kGreyColor2 = const Color(0xff989BA1);
 
 //NOTE: TEXTSTYLE
 TextStyle blackTextStyle = GoogleFonts.poppins(

@@ -66,7 +66,9 @@ class OnboardingPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(17),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/home');
+                      },
                       child: Text(
                         'Explore Now',
                         style: whiteTextStyle.copyWith(
