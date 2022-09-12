@@ -1,3 +1,4 @@
+import 'package:cozy/pages/details_page.dart';
 import 'package:flutter/material.dart';
 
 import '../theme.dart';
@@ -16,70 +17,84 @@ class CityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 120,
-      height: 150,
-      margin: const EdgeInsets.only(
-        top: 16,
-        right: 20,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
-        color: const Color(0xffF6F7F8),
-      ),
-      child: Column(
-        children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.vertical(
-              top: Radius.circular(18),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailsPage(
+              imageUrl: imageUrl,
+              title: city,
+              price: 40,
             ),
-            child: Container(
-              width: 120,
-              height: 102,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    imageUrl,
+          ),
+        );
+      },
+      child: Container(
+        width: 120,
+        height: 150,
+        margin: const EdgeInsets.only(
+          top: 16,
+          right: 20,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+          color: const Color(0xffF6F7F8),
+        ),
+        child: Column(
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(18),
+              ),
+              child: Container(
+                width: 120,
+                height: 102,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      imageUrl,
+                    ),
+                    fit: BoxFit.cover,
                   ),
-                  fit: BoxFit.cover,
+                ),
+                child: isPopular
+                    ? Align(
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          width: 50,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            color: kPurpleColor,
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(30),
+                            ),
+                          ),
+                          child: Center(
+                            child: Image.asset(
+                              'assets/icon_star.png',
+                              width: 22,
+                            ),
+                          ),
+                        ),
+                      )
+                    : const SizedBox(),
+              ),
+            ),
+            const SizedBox(
+              height: 11,
+            ),
+            Center(
+              child: Text(
+                city,
+                style: blackTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: medium,
                 ),
               ),
-              child: isPopular
-                  ? Align(
-                      alignment: Alignment.topRight,
-                      child: Container(
-                        width: 50,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: kPurpleColor,
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(30),
-                          ),
-                        ),
-                        child: Center(
-                          child: Image.asset(
-                            'assets/icon_star.png',
-                            width: 22,
-                          ),
-                        ),
-                      ),
-                    )
-                  : const SizedBox(),
-            ),
-          ),
-          const SizedBox(
-            height: 11,
-          ),
-          Center(
-            child: Text(
-              city,
-              style: blackTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: medium,
-              ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
